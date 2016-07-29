@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-5">
+    <input value={{cast.name}}
+           disabled=true
+           class="form-control"
+           type="text">
+  </div>
+  <div class="col-xs-5">
+    <input value={{cast.role}}
+           disabled=true
+           class="form-control"
+           type="text">
+  </div>
+  <div class="col-xs-2">
+    <button {{action 'remove' cast}} class="btn btn-danger">
+      {{fa-icon "minus" size="lg"}}
+    </button>
+  </div>
+</div>

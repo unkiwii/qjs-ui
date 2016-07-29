@@ -2,6 +2,22 @@
   border-radius: 5px;
 }
 
-.nice-space {
-  margin: 10px;
+.row {
+  margin-top: 10px;
+}
+
+.submit-button {
+  margin-bottom: 10px;
+}
+
+/* remove spin from input[type=number] for webkit browsers */
+input::-webkit-outer-spin-buttn,
+input::-webkit-inner-spin-buttn {
+  -webkit-appearence: none;
+  margin: 0;
+}
+
+/* remove spin from input[type=number] for moz browsers */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

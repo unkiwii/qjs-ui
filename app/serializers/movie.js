@@ -1,9 +1,26 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
   normalizeResponse(store, primaryModelClass, payload) {
+    let normalized = null;
+
+    if (Ember.isArray(payload)) {
+      normalized = payload.map(normalizeMovie);
+    } else {
+      normalized = normalizeMovie(payload);
+    }
+
+    return { data: normalized };
+  },
+
+  serialize(model) {
+    const movie = model.record;
     return {
-      data: payload.map(normalizeMovie)
+      title: movie.get('title'),
+      director: movie.get('director'),
+      release: movie.get('release'),
+      cast: movie.get('cast')
     };
   }
 });
