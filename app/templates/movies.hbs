@@ -21,11 +21,11 @@
                   <p>{{cast.name}} as {{cast.role}}</p>
                 {{/each}}
               </div>
-              <div class="col-xs-4 text-right">
-                <button class="btn btn-primary">
+              <div class="movie-buttons col-xs-4 text-right">
+                <button {{action "edit" movie}} class="btn btn-primary">
                   {{fa-icon "pencil" size="lg"}}
                 </button>
-                <button class="btn btn-danger">
+                <button {{action "remove" movie}} class="btn btn-danger">
                   {{fa-icon "trash" size="lg"}}
                 </button>
               </div>

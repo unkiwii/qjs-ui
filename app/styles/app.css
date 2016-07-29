@@ -10,6 +10,10 @@
   margin-bottom: 10px;
 }
 
+.movie-buttons {
+  margin-top: 10px;
+}
+
 /* remove spin from input[type=number] for webkit browsers */
 input::-webkit-outer-spin-buttn,
 input::-webkit-inner-spin-buttn {
