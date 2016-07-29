@@ -9,58 +9,5 @@
 </div>
 
 {{#if showing}}
-  <div class="row">
-    <div class="col-xs-12">
-      <form {{action "addMovie" on="submit"}} class="pull-right col-xs-6 bg-success">
-        <div class="row">
-          <div class="col-xs-12">
-            <label for="movieTitle">{{i18n 'movie.title.label'}}</label>
-            {{input id="movieTitle"
-                    value=title
-                    class="form-control"
-                    type="text"
-                    placeholder=(i18n 'movie.title.placeholder')}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <label for="movieDirector">{{i18n 'movie.director.label'}}</label>
-            {{input id="movieDirector"
-                    value=director
-                    class="form-control"
-                    type="text"
-                    placeholder=(i18n 'movie.director.placeholder')}}
-          </div>
-          <div class="col-xs-6">
-            <label for="movieRelease">{{i18n 'movie.release.label'}}</label>
-            {{input id="movieRelease"
-                    value=release
-                    class="form-control"
-                    type="number"
-                    placeholder=(i18n 'movie.release.placeholder')}}
-          </div>
-       </div>
-       <!-- cast title -->
-       <div class="row">
-         <div class="col-xs-5">
-           <label>{{i18n 'movie.cast.name.title'}}</label>
-         </div>
-         <div class="col-xs-5">
-           <label>{{i18n 'movie.cast.role.title'}}</label>
-         </div>
-       </div>
-       <!-- cast fields -->
-       {{#each cast as |entry|}}
-         {{fixed-cast cast=entry onRemove=(action "removeCast")}}
-       {{/each}}
-       {{cast-form onAdd=(action "addCast")}}
-       <!-- submit button -->
-       <div class="row">
-         <div class="col-xs-4">
-           <button class="submit-button btn btn-primary">{{i18n 'movie.submit'}}</button>
-         </div>
-       </div>
-      </form>
-    </div>
-  </div>
+  {{movie-form onSubmit=(action "addMovie")}}
 {{/if}}

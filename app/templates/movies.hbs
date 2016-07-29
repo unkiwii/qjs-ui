@@ -13,23 +13,7 @@
       <div class="row">
         <div class="col-xs-12">
           {{#each model as |movie|}}
-            <div class="row nice-rectangle bg-info">
-              <div class="col-xs-8">
-                <h1>{{movie.title}} <small>{{movie.release}}</small></h1>
-                <h4><b>Directed by:</b> {{movie.director}}</h4>
-                {{#each movie.cast as |cast|}}
-                  <p>{{cast.name}} as {{cast.role}}</p>
-                {{/each}}
-              </div>
-              <div class="movie-buttons col-xs-4 text-right">
-                <button {{action "edit" movie}} class="btn btn-primary">
-                  {{fa-icon "pencil" size="lg"}}
-                </button>
-                <button {{action "remove" movie}} class="btn btn-danger">
-                  {{fa-icon "trash" size="lg"}}
-                </button>
-              </div>
-            </div>
+            {{movie-entry id=movie.id movie=movie}}
           {{else}}
             <div class="col-xs-12 text-center">
               <h3>{{i18n 'movie.empty'}}</h3>

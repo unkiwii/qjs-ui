@@ -20,7 +20,7 @@ export default DS.JSONAPISerializer.extend({
       title: movie.get('title'),
       director: movie.get('director'),
       release: movie.get('release'),
-      cast: movie.get('cast')
+      cast: movie.get('cast').map(removeId)
     };
   }
 });
@@ -36,4 +36,14 @@ function normalizeMovie(movie) {
       cast: movie.cast
     }
   };
+}
+
+function removeId(item) {
+  const result = {};
+  Object.keys(item).forEach((key) => {
+    if (key !== "_id") {
+      result[key] = item[key];
+    }
+  });
+  return result;
 }

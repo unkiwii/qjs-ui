@@ -5,18 +5,7 @@ export default Ember.Component.extend({
 
   showing: false,
 
-  init() {
-    this._super(...arguments);
-    this.set('cast', []);
-  },
-
   hide() {
-    this.setProperties({
-      'title': null,
-      'director': null,
-      'release': null,
-      'cast': []
-    });
     this.set('showing', false);
   },
 
@@ -29,22 +18,7 @@ export default Ember.Component.extend({
       this.hide();
     },
 
-    addCast(cast) {
-      this.get('cast').push(cast);
-      this.notifyPropertyChange('cast');
-    },
-
-    removeCast(cast) {
-      const index = this.get('cast').indexOf(cast);
-      if (index !== -1) {
-        this.get('cast').splice(index, 1);
-        this.notifyPropertyChange('cast');
-      }
-    },
-
-    addMovie() {
-      const movie = this.getProperties('title', 'director', 'release', 'cast');
-      console.log(`addMovie: ${JSON.stringify(movie)}`);
+    addMovie(movie) {
       this.get('store').createRecord('movie', movie).save();
       this.hide();
     }
