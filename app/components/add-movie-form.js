@@ -36,6 +36,13 @@ export default Ember.Component.extend({
       const movie = this.getProperties('title', 'director', 'release', 'cast');
       console.log(`addMovie: ${JSON.stringify(movie)}`);
       this.get('store').createRecord('movie', movie).save();
+      this.setProperties({
+        'title': null,
+        'director': null,
+        'release': null,
+        'cast': []
+      });
+      this.set('showing', false);
     }
   }
 });
