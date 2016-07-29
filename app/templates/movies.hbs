@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="nice-rectangle row bg-primary">
+    <div class="col-xs-12 text-center">
+      <h1>{{i18n 'title'}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row nice-space">
+        <div class="col-xs-8">
+          <p class="lead">
+            {{i18n 'movie.list'}}
+          </p>
+        </div>
+        <div class="col-xs-4 text-right">
+          <button class="btn btn-success">{{i18n 'movie.add'}}</button>
+        </div>
+      </div>
+      <div class="row nice-rectangle bg-warning">
+        <div class="col-xs-12">
+          {{#each model as |movie|}}
+            <div class="row nice-space nice-rectangle bg-info">
+              <div class="col-xs-8">
+                <h1>{{movie.title}} <small>{{movie.release}}</small></h1>
+                <h4><b>Directed by:</b> {{movie.director}}</h4>
+                {{#each movie.cast as |cast|}}
+                  <p>{{cast.name}} as {{cast.role}}</p>
+                {{/each}}
+              </div>
+              <div class="col-xs-4 text-right">
+                <button class="btn btn-primary nice-space">
+                  {{fa-icon "pencil" size="lg"}}
+                </button>
+                <button class="btn btn-danger nice-space">
+                  {{fa-icon "trash" size="lg"}}
+                </button>
+              </div>
+            </div>
+          {{else}}
+            <div class="col-xs-12 text-center">
+              <h3 class="nice-space">{{i18n 'movie.empty'}}</h3>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

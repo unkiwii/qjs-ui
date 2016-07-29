@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_ENDPOINT: '/api'
+    },
+
+    i18n: {
+      defaultLocale: 'es'
     }
   };
 
@@ -25,6 +30,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.API_ENDPOINT = 'http://192.168.0.104:8080';
   }
 
   if (environment === 'test') {
